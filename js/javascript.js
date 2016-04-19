@@ -19,12 +19,16 @@ FONCTIONS
 
 *****************************/
 
-function play() {
+function playMusic() {
 	if (music.paused) {
 		music.play();
 	} else { 
 		music.pause();
 	}
+}
+
+function stopMusic() {
+	music.stop();
 }
  
 function timeUpdate() {
@@ -49,6 +53,8 @@ music.addEventListener("timeupdate", timeUpdate, false);
 
 $(document).ready(function(){
 
+	//////////Apparition menu
+
 	$(".fa-bars").click(function(){
 
 		$("header").css('display', 'block');
@@ -58,6 +64,20 @@ $(document).ready(function(){
 	$(".fa-times").click(function(){
 
 		$("header").css('display', 'none');
+	});
+
+	//////////Apparition sous menu
+
+	$("#nav-ajout").click(function(){
+
+		$("#side-menu").css('display', 'none');
+		$("#menu-ajouter").css('display', 'block');
+	});
+
+	$(".fa-arrow-left").click(function(){
+
+		$("#side-menu").css('display', 'block');
+		$("#menu-ajouter").css('display', 'none');
 	});
 
 })
